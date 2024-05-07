@@ -26,11 +26,10 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material mkdocstrings['python'] mkdocs-gen-files
-      - run: echo $PAT_ICOS
       - run: | 
             mkdir src
             cd src/
-            git clone -b develop https://Miciox5:$PAT_ICOS@github.com/Miciox5/ICOS.git
+            git clone -b develop https://Miciox5:${{ secrets.PAT_ICOS }}@github.com/Miciox5/ICOS.git
             cd ..
       - run: mkdocs gh-deploy --force
         env:
