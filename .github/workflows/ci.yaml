@@ -31,6 +31,7 @@ jobs:
             cd src/
             git clone -b feature/documentation https://Miciox5:${{ secrets.PAT_ICOS }}@github.com/Miciox5/ICOS.git
             cd ..
+      - run: ls -al
       - run: mkdocs gh-deploy --force
         env:
           PAT_ICOS: ${{ secrets.PAT_ICOS }}
