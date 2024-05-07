@@ -30,6 +30,7 @@ jobs:
             mkdir src
             cd src/
             git clone https://Miciox5:$PAT_ICOS@github.com:Miciox5/ICOS.git
+            
             cd ..
       - run: mkdocs gh-deploy --force
         env:
