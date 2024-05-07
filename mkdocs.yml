@@ -88,7 +88,6 @@ nav:
     - reference/ICOS/client.md
     - reference/ICOS/constants.md
     - reference/ICOS/converter.md
-    - reference/ICOS/dev-client-langserve.md
     - reference/ICOS/embedding.md
     - reference/ICOS/history.md
     - reference/ICOS/ingest.md
