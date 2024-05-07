@@ -4,7 +4,7 @@ from pathlib import Path
 
 import mkdocs_gen_files
 
-root = Path(__file__).parent.parent.parent
+root = Path(__file__).parent.parent
 print(root)
 src = root / "src"  
 
