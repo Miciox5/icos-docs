@@ -9,6 +9,8 @@ theme:
     - navigation.indexes
     - navigation.instant
     - navigation.instant.progress
+    - navigation.instant.preview
+    - navigation.tracking
     - navigation.tabs
     - navigation.top
     - navigation.footer
@@ -30,6 +32,12 @@ theme:
         name: Switch to light mode    
       primary: custom
 
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/Miciox5/ICOS/tree/develop
+    - icon: fontawesome/brands/docker
+    - icon: fontawesome/brands/slack
 
 plugins:
 - search
@@ -44,7 +52,9 @@ plugins:
         paths: [src]
         options:
           #docstring_section_style: list
-          #modernize_annotations: true
+          separate_signature: false
+          modernize_annotations: true
+          heading_level: 2
           parameter_headings: true
           merge_init_into_class: true
           show_source: false
@@ -58,20 +68,21 @@ plugins:
   
 
 markdown_extensions:
-    - pymdownx.tabbed:
-        alternate_style: true
-    - pymdownx.highlight:
-        anchor_linenums: true
-    - pymdownx.inlinehilite
-    - pymdownx.snippets
-    - admonition
-    - pymdownx.arithmatex:
-        generic: true
-    - footnotes
-    - pymdownx.details
-    - pymdownx.superfences
-    - pymdownx.mark
-    - attr_list
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+ 
 
 repo_url: https://github.com/Miciox5/ICOS/tree/develop
 repo_name: Miciox5/ICOS

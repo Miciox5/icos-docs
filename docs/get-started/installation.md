@@ -16,14 +16,14 @@ Clone the repo using git:
 git clone https://github.com/Miciox5/ICOS.git
 ```
 
-Create and activate a new virtual environment.
+Create and activate a new virtual environment:
 
 ```shell
 conda create -n ICOS python=3.10.0
 conda activate ICOS
 ```
 
-Install the dependencies.  
+Install the dependencies:
 
 ```shell
 pip install -r requirements.txt
