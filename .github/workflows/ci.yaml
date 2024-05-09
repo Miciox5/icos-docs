@@ -28,7 +28,7 @@ jobs:
       - run: pip install mkdocs-material mkdocstrings['python'] mkdocs-gen-files
       - run: | 
             mkdir src && cd src/ 
-            git clone -b feature/documentation https://Miciox5:${{ secrets.PAT_ICOS }}@github.com/Miciox5/ICOS.git
+            git clone -b develop https://Miciox5:${{ secrets.PAT_ICOS }}@github.com/Miciox5/ICOS.git
             ls -al && cd ..
       - run: mkdocs gh-deploy --force
         env:
