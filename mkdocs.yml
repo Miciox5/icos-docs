@@ -1,4 +1,3 @@
-site_name: My Docs
 site_name: 'LLM: RAG Applications'
 extra_css:
   - stylesheets/extra.css
