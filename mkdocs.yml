@@ -40,9 +40,9 @@ extra:
 
 plugins:
 - search
-- gen-files:
-    scripts:
-    - scripts/gen_ref_pages.py
+# - gen-files:
+#     scripts:
+#     - scripts/gen_ref_pages.py
 - mkdocstrings:
     enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
     default_handler: python
@@ -92,26 +92,5 @@ nav:
   - Get started:
     - get-started/installation.md
     - get-started/quickstart.md
-  - API reference:
-    - reference/ICOS/callbacks.md
-    - reference/ICOS/chain.md
-    - reference/ICOS/chroma.md
-    - reference/ICOS/chunker.md
-    - reference/ICOS/client.md
-    - reference/ICOS/constants.md
-    - reference/ICOS/converter.md
-    - reference/ICOS/embedding.md
-    - reference/ICOS/history.md
-    - reference/ICOS/ingest.md
-    - reference/ICOS/loader.md
-    - reference/ICOS/memory.md
-    - reference/ICOS/model.md
-    - reference/ICOS/mongo.md
-    - reference/ICOS/preprocessing.md
-    - reference/ICOS/prompt_template.md
-    - reference/ICOS/server-langserve.md
-    - reference/ICOS/session.md
-    - reference/ICOS/upload_files.md
-    - reference/ICOS/uploader.md
-    - reference/ICOS/utils.md
-    - reference/ICOS/wikipedia.md
+    - Guides:
+      - guides/prompting.md

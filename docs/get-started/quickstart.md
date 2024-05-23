@@ -64,32 +64,29 @@ Introduces the concept of a [Single Source of Truth (SSOT)](#single-source-of-tr
 
 When a new data is uploaded, you should assign a Single Source of Truth (SSOT) to it.  
 The SSOT is the owner of that data, and only the SSOT can modify or mutate it.  
-The new data will be uploaded to the ```documents``` folder.
+The new data will be loaded into a `Mongo` database.
 
 ### Upload data
 
 !!! info "Partial path tree showing the organization of the documents directory"
     ```
     ICOS
-     └── documents
-         └── source
+    └── documents
+        └──source
             └── language
-                ├── document_name.txt
-                ├── ....
+                ├── .loaded
+                │   ├── doc_name.txt
+                │   ├── ....
+                │   └── doc_name.pdf
+                ├── doc_name.pdf
+                ├── doc_name.pdf
                 └── metadata
-                   └── metadata.json
-    
+                    └── document_metadata.json
     ```
 
 !!! info "Supported file formats"
     - PDF
     - TXT
-
-To upload data to the server run the [scp](https://man7.org/linux/man-pages/man1/scp.1.html) command:
-
-```shell title="command syntax"
-scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2
-```
 
 #### Metadata
 
@@ -110,11 +107,34 @@ Metadata should be uploaded to the metadata directory.
     }
     ```
 
+The data must be uploaded to the appropriate Documents folder, as shown just above in the [Partial path tree](#upload-data).
+
+To upload data to the server run the [scp](https://man7.org/linux/man-pages/man1/scp.1.html) command:
+
+```shell title="command syntax"
+scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2
+```
+
+After uploading data to server, how explain in section [Single Source of Truth (SSOT)](#single-source-of-truth) the data must be uploaded into a `Mongo` database.
+
+Upload data into a `Mongo` database:
+
+```shell
+python load_documents.py
+```
+
+!!! note 
+    Once the data is uploaded to Mongo it is moved to the subdirectory called `.loaded.`   
+    This `.loaded` directory is useful for two reasons:
+
+        - Caching data already uploaded on Mongo
+        - Persistence of uploaded data to server
+
 
 ### Ingest data
 It loads documents from a specified source, processes them, extracts features using embeddings, and ingests them into a vector store.
 
-To ingest data run the following command:
+Ingest data:
 
 ```shell
 python ingest.py
@@ -126,9 +146,9 @@ The core of the application resides in its chain which is exposed by the [LangSe
 ### Expose the chain
 ```LangServe``` sets up a [FastAPI](https://fastapi.tiangolo.com/) server. It loads various components such as embeddings, cross-encoder model, and callbacks. It then constructs a processing chain for language understanding and dialogue management. Finally, it adds routes for handling API requests related to chat functionality and runs the server using [uvicorn](https://www.uvicorn.org/) on ```localhost:8000```.
 
-To expose the chain run the following command:
+Expose the chain:
 ```shell
-python server-langserve.py
+python run_server.py
 ```
 
 ### Run client
@@ -136,7 +156,7 @@ The client allows you to contact ```LangServe``` which provides the answer and a
 
 Run the following command:
 ```shell
-python client.py
+python run_client.py
 ```
 
 ## Trace application
