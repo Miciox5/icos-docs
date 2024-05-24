@@ -4,7 +4,6 @@ extra_css:
 theme:
   name: material
   features:
-    - navigation.sections
     - navigation.indexes
     - navigation.instant
     - navigation.instant.progress
@@ -40,9 +39,9 @@ extra:
 
 plugins:
 - search
-# - gen-files:
-#     scripts:
-#     - scripts/gen_ref_pages.py
+- gen-files:
+    scripts:
+    - scripts/gen_ref_pages.py 
 - mkdocstrings:
     enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
     default_handler: python
@@ -63,8 +62,6 @@ plugins:
           show_symbol_type_toc: true
           show_symbol_type_heading: true
           show_category_heading: true
-
-  
 
 markdown_extensions:
   - pymdownx.tabbed:
@@ -92,5 +89,34 @@ nav:
   - Get started:
     - get-started/installation.md
     - get-started/quickstart.md
-    - Guides:
-      - guides/prompting.md
+  - Guides:
+    - guides/prompting.md
+  - API reference:
+    - Callbacks:
+      - reference/ICOS/callbacks/handler.md
+    - Chains:
+      - reference/ICOS/chains/base.md
+      - reference/ICOS/chains/self_query_constructor.md
+    - LLMs:
+      - Clients:
+        - reference/ICOS/llms/clients/openllm.md
+    - Loaders:
+      - reference/ICOS/loaders/callbacks.md
+      - reference/ICOS/loaders/documents.md
+      - reference/ICOS/loaders/embedding.md
+      - reference/ICOS/loaders/local.md
+      - reference/ICOS/loaders/model.md
+      - reference/ICOS/loaders/remote.md
+    - Runnables:
+      - reference/ICOS/runnables/history.md
+    - Server:
+      - reference/ICOS/server/langserve.md
+      - reference/ICOS/server/session.md
+    - Text Splitters:
+      - reference/ICOS/text_splitters/chunker.md
+    - Utils:
+      - reference/ICOS/utils/converter.md
+      - reference/ICOS/utils/uploader.md
+      - reference/ICOS/utils/wikipedia.md
+    - Vector Stores:
+      - reference/ICOS/vector_stores/chroma.md
